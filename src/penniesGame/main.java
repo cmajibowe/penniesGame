@@ -17,20 +17,40 @@ public class main {
 		
 		return playerName;
 	}
+	
+	public static char getPlayerChoice() throws IOException {
+		char playerChoice = 'x';
+		char turn = 'x';
+		
+		InputStreamReader isr = new InputStreamReader(System.in);
+		BufferedReader br = new BufferedReader(isr);
+		
+		System.out.println("Would you like to make the first move? (y/n)");
+		playerChoice = (char) br.read();		
+		
+		if(playerChoice == 'y') {
+			turn = 'p';
+		} else if(playerChoice == 'n') {
+			turn = 'c';
+		} else {
+			turn = 'x';
+			System.out.println("Invalid choice. Please select either y for Yes or n for No.");
+		}
+		
+		return turn;		
+	}
 
 	
-	public static void main(String args[]) throws IOException {
+	public static void main(String[] args) throws IOException {
 		String playerName = null;
-		char playerChoice = 'x';
+		char turn = 'x';
 		
 		InputStreamReader isr = new InputStreamReader(System.in);
 		BufferedReader br = new BufferedReader(isr);		
 		
 		playerName = getPlayerInfo();
-		
-		System.out.println("Would you like to make the first move? (y/n)");
-		playerChoice = (char) br.read();		
-		
+		turn = getPlayerChoice();
+
 
 	}
 }
