@@ -9,7 +9,7 @@ public class main {
 		InputStreamReader isr = new InputStreamReader(System.in);
 		BufferedReader br = new BufferedReader(isr);
 		
-		System.out.println("Welcome to Pennies. A simple text game where the aim is to not remove the last pennie in the stack.");
+		System.out.println("Welcome to Pennies. A simple text game where the aim is to not remove the last penny in the stack.");
 		System.out.println("To start with, what is your name?");
 		playerName = br.readLine();
 		
@@ -34,22 +34,30 @@ public class main {
 			turn = 'c';
 		} else {
 			turn = 'x';
-			System.out.println("Invalid choice. Please select either y for Yes or n for No.");
+			System.out.println("Invalid choice. Please enter either y for Yes or n for No.");
 		}
 		
 		return turn;		
+	}
+	
+	public static void drawPennies(int numOfPennies) {
+		for(int i = numOfPennies; i > 0; i--) {
+			System.out.print("o");
+		}
 	}
 
 	
 	public static void main(String[] args) throws IOException {
 		String playerName = null;
 		char turn = 'x';
+		int numOfPennies = 21;
 		
 		InputStreamReader isr = new InputStreamReader(System.in);
 		BufferedReader br = new BufferedReader(isr);		
 		
 		playerName = getPlayerInfo();
 		turn = getPlayerChoice();
+		drawPennies(numOfPennies);
 
 
 	}
